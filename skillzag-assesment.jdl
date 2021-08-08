@@ -1,0 +1,71 @@
+
+entity Questions {
+	isTrueFalse Boolean,
+    isMultiple Boolean,
+    isOrderBy Boolean,
+    isDiscussion Boolean,
+    isActive Boolean,
+    question String,
+    createdBy String
+    
+}
+
+entity Answers {
+    isActive Boolean,
+    isCorrect Boolean,
+    answer String
+}
+
+entity QuestionSet {
+    isActive Boolean,
+    questionSet String,
+    score Long,
+    type String,
+    userAssign String,
+    numberOfQuestions Integer,
+    createdBy String,
+    createdTime Instant
+}
+
+entity User {
+    isActive Boolean,
+	userName String,
+    userRole String,
+    others String,
+    lastCompleteTest Instant,
+    lastInCompleteTest Instant
+}
+
+entity CompleteTest {
+    isActive Boolean,
+	testDate Instant,
+    testTime Instant,
+    testDuration Integer,
+    testMaxScore Integer,
+    testScore Integer,
+    testAnswered Integer,
+    testUnanswered Integer
+}
+
+entity InCompleteTest {
+    answer String,
+    testTime Instant
+}
+
+relationship OneToMany { 
+  Questions to Answers,
+  QuestionSet to Questions,
+  User to CompleteTest,
+  User to InCompleteTest,
+  User to QuestionSet,
+}
+relationship OneToOne {
+Questions to InCompleteTest
+}
+
+// Set pagination options
+paginate all with pagination
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+service all with serviceImpl
