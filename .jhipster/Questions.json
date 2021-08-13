@@ -1,0 +1,60 @@
+{
+  "name": "Questions",
+  "fields": [
+    {
+      "fieldName": "isTrueFalse",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isMultiple",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isOrderBy",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isDiscussion",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "question",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "answers",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "answers"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "questionSet",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "questionSet",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210808121724",
+  "entityTableName": "questions",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "skillzagassesment",
+  "applications": "*",
+  "microserviceName": "skillzagassesment"
+}

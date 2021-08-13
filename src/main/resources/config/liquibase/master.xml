@@ -14,7 +14,17 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210808121724_added_entity_Questions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210808121824_added_entity_Answers.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210808121924_added_entity_QuestionSet.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210808122024_added_entity_SkillZagUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210808122124_added_entity_UserCompleteTest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210808122224_added_entity_UserInCompleteTest.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210808121724_added_entity_constraints_Questions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210808121824_added_entity_constraints_Answers.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210808122124_added_entity_constraints_UserCompleteTest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210808122224_added_entity_constraints_UserInCompleteTest.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

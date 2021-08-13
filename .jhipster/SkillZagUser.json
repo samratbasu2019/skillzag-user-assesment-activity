@@ -1,0 +1,59 @@
+{
+  "name": "SkillZagUser",
+  "fields": [
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "userName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userRole",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "questionSetId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "others",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastCompleteTest",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastInCompleteTest",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "userCompleteTest",
+      "otherEntityRelationshipName": "skillZagUser",
+      "relationshipName": "userCompleteTest"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "userInCompleteTest",
+      "otherEntityRelationshipName": "skillZagUser",
+      "relationshipName": "userInCompleteTest"
+    }
+  ],
+  "changelogDate": "20210808122024",
+  "entityTableName": "skill_zag_user",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "skillzagassesment",
+  "applications": "*",
+  "microserviceName": "skillzagassesment"
+}

@@ -21,22 +21,23 @@ entity QuestionSet {
     questionSet String,
     score Long,
     type String,
-    userAssign String,
+    questionSetType String,
     numberOfQuestions Integer,
     createdBy String,
     createdTime Instant
 }
 
-entity User {
+entity SkillZagUser {
     isActive Boolean,
 	userName String,
     userRole String,
+    questionSetId Long,
     others String,
     lastCompleteTest Instant,
     lastInCompleteTest Instant
 }
 
-entity CompleteTest {
+entity UserCompleteTest {
     isActive Boolean,
 	testDate Instant,
     testTime Instant,
@@ -47,7 +48,7 @@ entity CompleteTest {
     testUnanswered Integer
 }
 
-entity InCompleteTest {
+entity UserInCompleteTest {
     answer String,
     testTime Instant
 }
@@ -55,13 +56,11 @@ entity InCompleteTest {
 relationship OneToMany { 
   Questions to Answers,
   QuestionSet to Questions,
-  User to CompleteTest,
-  User to InCompleteTest,
-  User to QuestionSet,
+    SkillZagUser to UserCompleteTest,
+  SkillZagUser to UserInCompleteTest
 }
-relationship OneToOne {
-Questions to InCompleteTest
-}
+
+
 
 // Set pagination options
 paginate all with pagination

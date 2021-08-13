@@ -1,0 +1,58 @@
+{
+  "name": "UserCompleteTest",
+  "fields": [
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "testDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "testTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "testDuration",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "testMaxScore",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "testScore",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "testAnswered",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "testUnanswered",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "skillZagUser",
+      "otherEntityRelationshipName": "userCompleteTest",
+      "relationshipName": "skillZagUser",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210808122124",
+  "entityTableName": "user_complete_test",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "skillzagassesment",
+  "applications": "*",
+  "microserviceName": "skillzagassesment"
+}

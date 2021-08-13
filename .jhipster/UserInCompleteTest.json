@@ -1,0 +1,34 @@
+{
+  "name": "UserInCompleteTest",
+  "fields": [
+    {
+      "fieldName": "answer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "testTime",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "skillZagUser",
+      "otherEntityRelationshipName": "userInCompleteTest",
+      "relationshipName": "skillZagUser",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210808122224",
+  "entityTableName": "user_in_complete_test",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "skillzagassesment",
+  "applications": "*",
+  "microserviceName": "skillzagassesment"
+}

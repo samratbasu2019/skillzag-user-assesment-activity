@@ -1,0 +1,38 @@
+{
+  "name": "Answers",
+  "fields": [
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isCorrect",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "answer",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "questions",
+      "otherEntityRelationshipName": "answers",
+      "relationshipName": "questions",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210808121824",
+  "entityTableName": "answers",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "skillzagassesment",
+  "applications": "*",
+  "microserviceName": "skillzagassesment"
+}
