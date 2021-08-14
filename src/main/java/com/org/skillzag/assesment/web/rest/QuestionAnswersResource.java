@@ -28,15 +28,28 @@ public class QuestionAnswersResource {
     }
 
     /**
-     * {@code GET  /questions/:id} : get the "id" questions.
+     * {@code GET  /questions/:questionSetId} : get the "id" questions.
      *
-     * @param id the id of the questionsDTO to retrieve.
+     * @param questionSetId the id of the questionsDTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the questionsDTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/question-answer/{id}")
-    public ResponseEntity<?> getQuestionAnswer(@PathVariable Long id) {
-        log.debug("REST request to get Question Answers : {}", id);
-        List<Map<String, Object>>  questionsDTO = questionAnswersService.findQuestionAnswer(id);
+    @GetMapping("/question-answer-byid/{questionSetId}")
+    public ResponseEntity<?> getQuestionAnswer(@PathVariable Long questionSetId) {
+        log.debug("REST request to get Question Answers : {}", questionSetId);
+        List<Map<String, Object>>  questionsDTO = questionAnswersService.findQuestionAnswerBySetId(questionSetId);
+        return ResponseEntity.ok().body(questionsDTO);
+    }
+
+    /**
+     * {@code GET  /questions/:type} : get the "id" questions.
+     *
+     * @param type the id of the questionsDTO to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the questionsDTO, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/question-answer-bytype/{type}")
+    public ResponseEntity<?> getQuestionAnswerType(@PathVariable String type) {
+        log.debug("REST request to get Question Answers : {}", type);
+        List<Map<String, Object>>  questionsDTO = questionAnswersService.findQuestionAnswerByType(type);
         return ResponseEntity.ok().body(questionsDTO);
     }
 }

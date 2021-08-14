@@ -27,8 +27,14 @@ public class QuestionAnswersServiceImpl implements QuestionAnswersService {
         this.crudQuestionAnswerRepository = crudQuestionAnswerRepository;
     }
     @Override
-    public List<Map<String, Object>> findQuestionAnswer(Long id) {
+    public List<Map<String, Object>> findQuestionAnswerBySetId(Long id) {
         log.debug("event=findQuestionAnswer Request to get Question Answers : {}", id);
-        return crudQuestionAnswerRepository.findQuestionAnswers(id);
+        return crudQuestionAnswerRepository.findQuestionAnswersByQuestionSetId(id);
+    }
+
+    @Override
+    public List<Map<String, Object>> findQuestionAnswerByType(String type) {
+        log.debug("event=findQuestionAnswerByType Request to get Question Answers : {}", type);
+        return crudQuestionAnswerRepository.findQuestionAnswersBySetType(type);
     }
 }

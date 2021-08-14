@@ -3,6 +3,7 @@ package com.org.skillzag.assesment.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -41,6 +42,9 @@ public class Questions implements Serializable {
 
     @Column(name = "created_by")
     private String createdBy;
+
+    @Column(name = "score")
+    private Integer score;
 
     @OneToMany(mappedBy = "questions")
     private Set<Answers> answers = new HashSet<>();
@@ -149,6 +153,19 @@ public class Questions implements Serializable {
         this.createdBy = createdBy;
     }
 
+    public Integer getScore() {
+        return score;
+    }
+
+    public Questions score(Integer score) {
+        this.score = score;
+        return this;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
     public Set<Answers> getAnswers() {
         return answers;
     }
@@ -216,6 +233,7 @@ public class Questions implements Serializable {
             ", isActive='" + isIsActive() + "'" +
             ", question='" + getQuestion() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
+            ", score=" + getScore() +
             "}";
     }
 }

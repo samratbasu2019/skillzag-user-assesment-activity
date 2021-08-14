@@ -23,6 +23,8 @@ public class QuestionsDTO implements Serializable {
 
     private String createdBy;
 
+    private Integer score;
+
 
     private Long questionSetId;
     
@@ -90,6 +92,14 @@ public class QuestionsDTO implements Serializable {
         this.createdBy = createdBy;
     }
 
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
     public Long getQuestionSetId() {
         return questionSetId;
     }
@@ -127,6 +137,7 @@ public class QuestionsDTO implements Serializable {
             ", isActive='" + isIsActive() + "'" +
             ", question='" + getQuestion() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
+            ", score=" + getScore() +
             ", questionSetId=" + getQuestionSetId() +
             "}";
     }

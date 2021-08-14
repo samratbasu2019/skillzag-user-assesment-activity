@@ -20,6 +20,7 @@
     <include file="config/liquibase/changelog/20210808122024_added_entity_SkillZagUser.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210808122124_added_entity_UserCompleteTest.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210808122224_added_entity_UserInCompleteTest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210814114613_added_entity_SkillzZagUserResponse.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20210808121724_added_entity_constraints_Questions.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210808121824_added_entity_constraints_Answers.xml" relativeToChangelogFile="false"/>

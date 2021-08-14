@@ -6,7 +6,8 @@ entity Questions {
     isDiscussion Boolean,
     isActive Boolean,
     question String,
-    createdBy String
+    createdBy String,
+    score Integer
     
 }
 
@@ -53,6 +54,14 @@ entity UserInCompleteTest {
     testTime Instant
 }
 
+entity SkillzZagUserResponse {
+	userId String,
+    questionId Long,
+    answerId Long,
+    questionSetId Long
+    
+}
+
 relationship OneToMany { 
   Questions to Answers,
   QuestionSet to Questions,
@@ -60,6 +69,7 @@ relationship OneToMany {
   SkillZagUser to UserInCompleteTest
 }
 
+ 
 
 
 // Set pagination options

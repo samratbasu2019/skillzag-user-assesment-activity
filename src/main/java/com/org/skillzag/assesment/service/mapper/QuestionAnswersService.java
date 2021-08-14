@@ -14,5 +14,13 @@ public interface QuestionAnswersService {
      * @param id the id of the entity.
      * @return the entity.
      */
-    List<Map<String, Object>>  findQuestionAnswer(Long id);
+    List<Map<String, Object>> findQuestionAnswerBySetId(Long id);
+
+    /**
+     * Get the "id" questions.
+     *
+     * @param type the id of the entity.
+     * @return the entity.
+     */
+    List<Map<String, Object>>  findQuestionAnswerByType(String type);
 }

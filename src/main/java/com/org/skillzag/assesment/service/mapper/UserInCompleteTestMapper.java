@@ -1,10 +1,10 @@
 package com.org.skillzag.assesment.service.mapper;
 
 
-import com.org.skillzag.assesment.domain.UserInCompleteTest;
+import com.org.skillzag.assesment.domain.*;
 import com.org.skillzag.assesment.service.dto.UserInCompleteTestDTO;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+
+import org.mapstruct.*;
 
 /**
  * Mapper for the entity {@link UserInCompleteTest} and its DTO {@link UserInCompleteTestDTO}.

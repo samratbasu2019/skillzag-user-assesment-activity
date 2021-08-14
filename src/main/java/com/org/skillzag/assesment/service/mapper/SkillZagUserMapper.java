@@ -1,10 +1,10 @@
 package com.org.skillzag.assesment.service.mapper;
 
 
-import com.org.skillzag.assesment.domain.SkillZagUser;
+import com.org.skillzag.assesment.domain.*;
 import com.org.skillzag.assesment.service.dto.SkillZagUserDTO;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+
+import org.mapstruct.*;
 
 /**
  * Mapper for the entity {@link SkillZagUser} and its DTO {@link SkillZagUserDTO}.

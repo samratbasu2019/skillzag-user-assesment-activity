@@ -1,0 +1,34 @@
+{
+  "name": "SkillzZagUserResponse",
+  "fields": [
+    {
+      "fieldName": "userId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "questionId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "answerId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "questionSetId",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210814114613",
+  "entityTableName": "skillz_zag_user_response",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "skillzagassesment",
+  "applications": "*",
+  "microserviceName": "skillzagassesment"
+}

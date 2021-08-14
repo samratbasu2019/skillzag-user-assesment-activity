@@ -55,6 +55,9 @@ public class QuestionsResourceIT {
     private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
 
+    private static final Integer DEFAULT_SCORE = 1;
+    private static final Integer UPDATED_SCORE = 2;
+
     @Autowired
     private QuestionsRepository questionsRepository;
 
@@ -86,7 +89,8 @@ public class QuestionsResourceIT {
             .isDiscussion(DEFAULT_IS_DISCUSSION)
             .isActive(DEFAULT_IS_ACTIVE)
             .question(DEFAULT_QUESTION)
-            .createdBy(DEFAULT_CREATED_BY);
+            .createdBy(DEFAULT_CREATED_BY)
+            .score(DEFAULT_SCORE);
         return questions;
     }
     /**
@@ -103,7 +107,8 @@ public class QuestionsResourceIT {
             .isDiscussion(UPDATED_IS_DISCUSSION)
             .isActive(UPDATED_IS_ACTIVE)
             .question(UPDATED_QUESTION)
-            .createdBy(UPDATED_CREATED_BY);
+            .createdBy(UPDATED_CREATED_BY)
+            .score(UPDATED_SCORE);
         return questions;
     }
 
@@ -134,6 +139,7 @@ public class QuestionsResourceIT {
         assertThat(testQuestions.isIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
         assertThat(testQuestions.getQuestion()).isEqualTo(DEFAULT_QUESTION);
         assertThat(testQuestions.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
+        assertThat(testQuestions.getScore()).isEqualTo(DEFAULT_SCORE);
     }
 
     @Test
@@ -174,7 +180,8 @@ public class QuestionsResourceIT {
             .andExpect(jsonPath("$.[*].isDiscussion").value(hasItem(DEFAULT_IS_DISCUSSION.booleanValue())))
             .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE.booleanValue())))
             .andExpect(jsonPath("$.[*].question").value(hasItem(DEFAULT_QUESTION)))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)));
+            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
+            .andExpect(jsonPath("$.[*].score").value(hasItem(DEFAULT_SCORE)));
     }
     
     @Test
@@ -194,7 +201,8 @@ public class QuestionsResourceIT {
             .andExpect(jsonPath("$.isDiscussion").value(DEFAULT_IS_DISCUSSION.booleanValue()))
             .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE.booleanValue()))
             .andExpect(jsonPath("$.question").value(DEFAULT_QUESTION))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY));
+            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
+            .andExpect(jsonPath("$.score").value(DEFAULT_SCORE));
     }
     @Test
     @Transactional
@@ -223,7 +231,8 @@ public class QuestionsResourceIT {
             .isDiscussion(UPDATED_IS_DISCUSSION)
             .isActive(UPDATED_IS_ACTIVE)
             .question(UPDATED_QUESTION)
-            .createdBy(UPDATED_CREATED_BY);
+            .createdBy(UPDATED_CREATED_BY)
+            .score(UPDATED_SCORE);
         QuestionsDTO questionsDTO = questionsMapper.toDto(updatedQuestions);
 
         restQuestionsMockMvc.perform(put("/api/questions").with(csrf())
@@ -242,6 +251,7 @@ public class QuestionsResourceIT {
         assertThat(testQuestions.isIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
         assertThat(testQuestions.getQuestion()).isEqualTo(UPDATED_QUESTION);
         assertThat(testQuestions.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
+        assertThat(testQuestions.getScore()).isEqualTo(UPDATED_SCORE);
     }
 
     @Test
