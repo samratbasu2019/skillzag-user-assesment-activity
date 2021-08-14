@@ -1,8 +1,8 @@
 package com.org.skillzag.assesment.service;
 
-import io.github.jhipster.config.JHipsterProperties;
 import com.org.skillzag.assesment.config.audit.AuditEventConverter;
 import com.org.skillzag.assesment.repository.PersistenceAuditEventRepository;
+import io.github.jhipster.config.JHipsterProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.actuate.audit.AuditEvent;

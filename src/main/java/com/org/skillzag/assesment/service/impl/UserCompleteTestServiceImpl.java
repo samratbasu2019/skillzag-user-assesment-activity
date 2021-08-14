@@ -1,13 +1,12 @@
 package com.org.skillzag.assesment.service.impl;
 
-import com.org.skillzag.assesment.service.UserCompleteTestService;
 import com.org.skillzag.assesment.domain.UserCompleteTest;
 import com.org.skillzag.assesment.repository.UserCompleteTestRepository;
+import com.org.skillzag.assesment.service.UserCompleteTestService;
 import com.org.skillzag.assesment.service.dto.UserCompleteTestDTO;
 import com.org.skillzag.assesment.service.mapper.UserCompleteTestMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

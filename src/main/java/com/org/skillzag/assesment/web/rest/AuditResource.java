@@ -1,7 +1,6 @@
 package com.org.skillzag.assesment.web.rest;
 
 import com.org.skillzag.assesment.service.AuditEventService;
-
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.springframework.boot.actuate.audit.AuditEvent;

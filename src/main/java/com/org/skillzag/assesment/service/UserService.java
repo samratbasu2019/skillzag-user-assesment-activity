@@ -7,7 +7,6 @@ import com.org.skillzag.assesment.repository.AuthorityRepository;
 import com.org.skillzag.assesment.repository.UserRepository;
 import com.org.skillzag.assesment.security.SecurityUtils;
 import com.org.skillzag.assesment.service.dto.UserDTO;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;

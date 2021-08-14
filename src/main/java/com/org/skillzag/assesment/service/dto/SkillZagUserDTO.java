@@ -1,13 +1,13 @@
 package com.org.skillzag.assesment.service.dto;
 
-import java.time.Instant;
 import java.io.Serializable;
+import java.time.Instant;
 
 /**
  * A DTO for the {@link com.org.skillzag.assesment.domain.SkillZagUser} entity.
  */
 public class SkillZagUserDTO implements Serializable {
-    
+
     private Long id;
 
     private Boolean isActive;
@@ -24,7 +24,7 @@ public class SkillZagUserDTO implements Serializable {
 
     private Instant lastInCompleteTest;
 
-    
+
     public Long getId() {
         return id;
     }

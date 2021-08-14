@@ -1,7 +1,6 @@
 package com.org.skillzag.assesment.client;
 
 import com.org.skillzag.assesment.security.oauth2.AuthorizationHeaderUtil;
-
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 

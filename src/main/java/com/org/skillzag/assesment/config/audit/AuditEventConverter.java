@@ -1,7 +1,6 @@
 package com.org.skillzag.assesment.config.audit;
 
 import com.org.skillzag.assesment.domain.PersistentAuditEvent;
-
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Component;

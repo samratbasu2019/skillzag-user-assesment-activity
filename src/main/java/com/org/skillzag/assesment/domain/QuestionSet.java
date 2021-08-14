@@ -2,7 +2,6 @@ package com.org.skillzag.assesment.domain;
 
 
 import javax.persistence.*;
-
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;

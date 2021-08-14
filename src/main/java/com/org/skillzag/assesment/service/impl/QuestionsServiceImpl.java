@@ -1,13 +1,13 @@
 package com.org.skillzag.assesment.service.impl;
 
-import com.org.skillzag.assesment.service.QuestionsService;
 import com.org.skillzag.assesment.domain.Questions;
+import com.org.skillzag.assesment.repository.CRUDQuestionAnswerRepository;
 import com.org.skillzag.assesment.repository.QuestionsRepository;
+import com.org.skillzag.assesment.service.QuestionsService;
 import com.org.skillzag.assesment.service.dto.QuestionsDTO;
 import com.org.skillzag.assesment.service.mapper.QuestionsMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -28,9 +28,13 @@ public class QuestionsServiceImpl implements QuestionsService {
 
     private final QuestionsMapper questionsMapper;
 
-    public QuestionsServiceImpl(QuestionsRepository questionsRepository, QuestionsMapper questionsMapper) {
+    private final CRUDQuestionAnswerRepository crudQuestionAnswerRepository;
+
+    public QuestionsServiceImpl(QuestionsRepository questionsRepository, QuestionsMapper questionsMapper,
+                                CRUDQuestionAnswerRepository crudQuestionAnswerRepository) {
         this.questionsRepository = questionsRepository;
         this.questionsMapper = questionsMapper;
+        this.crudQuestionAnswerRepository = crudQuestionAnswerRepository;
     }
 
     @Override

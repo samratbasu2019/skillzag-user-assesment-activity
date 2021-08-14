@@ -1,8 +1,7 @@
 package com.org.skillzag.assesment.repository;
 
 import com.org.skillzag.assesment.domain.UserCompleteTest;
-
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**

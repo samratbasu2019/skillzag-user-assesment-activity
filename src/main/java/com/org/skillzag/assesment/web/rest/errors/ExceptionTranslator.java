@@ -2,9 +2,9 @@ package com.org.skillzag.assesment.web.rest.errors;
 
 import io.github.jhipster.config.JHipsterConstants;
 import io.github.jhipster.web.util.HeaderUtil;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.dao.ConcurrencyFailureException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +14,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.NativeWebRequest;
-import org.springframework.core.env.Environment;
-import org.zalando.problem.DefaultProblem;
-import org.zalando.problem.Problem;
-import org.zalando.problem.ProblemBuilder;
-import org.zalando.problem.Status;
-import org.zalando.problem.StatusType;
+import org.zalando.problem.*;
 import org.zalando.problem.spring.web.advice.ProblemHandling;
 import org.zalando.problem.spring.web.advice.security.SecurityAdviceTrait;
 import org.zalando.problem.violations.ConstraintViolationProblem;
@@ -123,7 +118,7 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
 
     @Override
     public ProblemBuilder prepare(final Throwable throwable, final StatusType status, final URI type) {
-        
+
         Collection<String> activeProfiles = Arrays.asList(env.getActiveProfiles());
 
         if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_PRODUCTION)) {
@@ -138,7 +133,7 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
                         .map(this::toProblem)
                         .orElse(null));
             }
-    
+
             if (throwable instanceof DataAccessException) {
                 return Problem.builder()
                     .withType(type)
@@ -150,7 +145,7 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
                         .map(this::toProblem)
                         .orElse(null));
             }
-    
+
             if (containsPackageName(throwable.getMessage())) {
                 return Problem.builder()
                     .withType(type)

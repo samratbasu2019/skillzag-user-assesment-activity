@@ -1,13 +1,12 @@
 package com.org.skillzag.assesment.service.impl;
 
-import com.org.skillzag.assesment.service.SkillZagUserService;
 import com.org.skillzag.assesment.domain.SkillZagUser;
 import com.org.skillzag.assesment.repository.SkillZagUserRepository;
+import com.org.skillzag.assesment.service.SkillZagUserService;
 import com.org.skillzag.assesment.service.dto.SkillZagUserDTO;
 import com.org.skillzag.assesment.service.mapper.SkillZagUserMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

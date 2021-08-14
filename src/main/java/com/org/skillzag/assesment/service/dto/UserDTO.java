@@ -1,11 +1,13 @@
 package com.org.skillzag.assesment.service.dto;
 
 import com.org.skillzag.assesment.config.Constants;
-
 import com.org.skillzag.assesment.domain.Authority;
 import com.org.skillzag.assesment.domain.User;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.Instant;
 import java.util.Set;
 import java.util.stream.Collectors;

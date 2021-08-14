@@ -1,8 +1,7 @@
 package com.org.skillzag.assesment.domain;
 
-import com.org.skillzag.assesment.config.Constants;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.org.skillzag.assesment.config.Constants;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.BatchSize;
 

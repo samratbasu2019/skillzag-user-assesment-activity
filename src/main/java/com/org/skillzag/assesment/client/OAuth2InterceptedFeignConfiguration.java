@@ -1,10 +1,8 @@
 package com.org.skillzag.assesment.client;
 
-import org.springframework.context.annotation.Bean;
-
-import feign.RequestInterceptor;
-
 import com.org.skillzag.assesment.security.oauth2.AuthorizationHeaderUtil;
+import feign.RequestInterceptor;
+import org.springframework.context.annotation.Bean;
 
 public class OAuth2InterceptedFeignConfiguration {
 
