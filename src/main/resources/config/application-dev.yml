@@ -37,9 +37,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/skillzag-assesment
+    url: jdbc:postgresql://localhost:5432/skillzag_assesment
     username: postgres
-    password:
+    password: PostAdm@ssw0rd229
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -69,7 +69,7 @@ spring:
         enabled: true
 
 server:
-  port: 8061
+  port: 8062
 
 # ===================================================================
 # JHipster specific properties
