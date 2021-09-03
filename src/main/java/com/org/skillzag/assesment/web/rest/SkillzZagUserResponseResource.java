@@ -28,7 +28,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SkillzZagUserResponseResource {
 
     private final Logger log = LoggerFactory.getLogger(SkillzZagUserResponseResource.class);
