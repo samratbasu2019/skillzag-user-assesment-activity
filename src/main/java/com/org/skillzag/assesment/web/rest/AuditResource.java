@@ -22,7 +22,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/management/audits")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class AuditResource {
 
     private final AuditEventService auditEventService;

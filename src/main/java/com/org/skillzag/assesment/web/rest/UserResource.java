@@ -46,7 +46,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class UserResource {
 
     private final Logger log = LoggerFactory.getLogger(UserResource.class);
