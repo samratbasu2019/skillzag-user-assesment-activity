@@ -21,7 +21,6 @@ public class CORSFilter implements Filter {
         throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
         HttpServletRequest request = (HttpServletRequest) req;
-        System.out.println("WebConfig; "+request.getRequestURI());
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,observe");
@@ -30,7 +29,6 @@ public class CORSFilter implements Filter {
         response.setHeader("Access-Control-Expose-Headers", "Authorization");
         response.addHeader("Access-Control-Expose-Headers", "responseType");
         response.addHeader("Access-Control-Expose-Headers", "observe");
-        System.out.println("Request Method: "+request.getMethod());
         if (!(request.getMethod().equalsIgnoreCase("OPTIONS"))) {
             try {
                 chain.doFilter(req, res);
