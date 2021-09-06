@@ -17,6 +17,8 @@ public class QuestionsDTO implements Serializable {
 
     private Boolean isDiscussion;
 
+    private String videourl;
+
     private Boolean isActive;
 
     private String question;
@@ -66,6 +68,14 @@ public class QuestionsDTO implements Serializable {
 
     public void setIsDiscussion(Boolean isDiscussion) {
         this.isDiscussion = isDiscussion;
+    }
+
+    public String getVideourl() {
+        return videourl;
+    }
+
+    public void setVideourl(String videourl) {
+        this.videourl = videourl;
     }
 
     public Boolean isIsActive() {
@@ -134,6 +144,7 @@ public class QuestionsDTO implements Serializable {
             ", isMultiple='" + isIsMultiple() + "'" +
             ", isOrderBy='" + isIsOrderBy() + "'" +
             ", isDiscussion='" + isIsDiscussion() + "'" +
+            ", videourl='" + getVideourl() + "'" +
             ", isActive='" + isIsActive() + "'" +
             ", question='" + getQuestion() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +

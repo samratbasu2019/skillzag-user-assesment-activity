@@ -4,11 +4,12 @@ entity Questions {
     isMultiple Boolean,
     isOrderBy Boolean,
     isDiscussion Boolean,
+    videourl String,
     isActive Boolean,
     question String,
     createdBy String,
     score Integer
-    
+
 }
 
 entity Answers {
@@ -59,17 +60,17 @@ entity SkillzZagUserResponse {
     questionId Long,
     answerId Long,
     questionSetId Long
-    
+
 }
 
-relationship OneToMany { 
+relationship OneToMany {
   Questions to Answers,
   QuestionSet to Questions,
     SkillZagUser to UserCompleteTest,
   SkillZagUser to UserInCompleteTest
 }
 
- 
+
 
 
 // Set pagination options

@@ -34,6 +34,9 @@ public class Questions implements Serializable {
     @Column(name = "is_discussion")
     private Boolean isDiscussion;
 
+    @Column(name = "videourl")
+    private String videourl;
+
     @Column(name = "is_active")
     private Boolean isActive;
 
@@ -112,6 +115,19 @@ public class Questions implements Serializable {
 
     public void setIsDiscussion(Boolean isDiscussion) {
         this.isDiscussion = isDiscussion;
+    }
+
+    public String getVideourl() {
+        return videourl;
+    }
+
+    public Questions videourl(String videourl) {
+        this.videourl = videourl;
+        return this;
+    }
+
+    public void setVideourl(String videourl) {
+        this.videourl = videourl;
     }
 
     public Boolean isIsActive() {
@@ -230,6 +246,7 @@ public class Questions implements Serializable {
             ", isMultiple='" + isIsMultiple() + "'" +
             ", isOrderBy='" + isIsOrderBy() + "'" +
             ", isDiscussion='" + isIsDiscussion() + "'" +
+            ", videourl='" + getVideourl() + "'" +
             ", isActive='" + isIsActive() + "'" +
             ", question='" + getQuestion() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +

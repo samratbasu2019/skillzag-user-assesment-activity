@@ -18,6 +18,10 @@
       "fieldType": "Boolean"
     },
     {
+      "fieldName": "videourl",
+      "fieldType": "String"
+    },
+    {
       "fieldName": "isActive",
       "fieldType": "Boolean"
     },

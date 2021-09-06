@@ -46,6 +46,9 @@ public class QuestionsResourceIT {
     private static final Boolean DEFAULT_IS_DISCUSSION = false;
     private static final Boolean UPDATED_IS_DISCUSSION = true;
 
+    private static final String DEFAULT_VIDEOURL = "AAAAAAAAAA";
+    private static final String UPDATED_VIDEOURL = "BBBBBBBBBB";
+
     private static final Boolean DEFAULT_IS_ACTIVE = false;
     private static final Boolean UPDATED_IS_ACTIVE = true;
 
@@ -87,6 +90,7 @@ public class QuestionsResourceIT {
             .isMultiple(DEFAULT_IS_MULTIPLE)
             .isOrderBy(DEFAULT_IS_ORDER_BY)
             .isDiscussion(DEFAULT_IS_DISCUSSION)
+            .videourl(DEFAULT_VIDEOURL)
             .isActive(DEFAULT_IS_ACTIVE)
             .question(DEFAULT_QUESTION)
             .createdBy(DEFAULT_CREATED_BY)
@@ -105,6 +109,7 @@ public class QuestionsResourceIT {
             .isMultiple(UPDATED_IS_MULTIPLE)
             .isOrderBy(UPDATED_IS_ORDER_BY)
             .isDiscussion(UPDATED_IS_DISCUSSION)
+            .videourl(UPDATED_VIDEOURL)
             .isActive(UPDATED_IS_ACTIVE)
             .question(UPDATED_QUESTION)
             .createdBy(UPDATED_CREATED_BY)
@@ -136,6 +141,7 @@ public class QuestionsResourceIT {
         assertThat(testQuestions.isIsMultiple()).isEqualTo(DEFAULT_IS_MULTIPLE);
         assertThat(testQuestions.isIsOrderBy()).isEqualTo(DEFAULT_IS_ORDER_BY);
         assertThat(testQuestions.isIsDiscussion()).isEqualTo(DEFAULT_IS_DISCUSSION);
+        assertThat(testQuestions.getVideourl()).isEqualTo(DEFAULT_VIDEOURL);
         assertThat(testQuestions.isIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
         assertThat(testQuestions.getQuestion()).isEqualTo(DEFAULT_QUESTION);
         assertThat(testQuestions.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
@@ -178,6 +184,7 @@ public class QuestionsResourceIT {
             .andExpect(jsonPath("$.[*].isMultiple").value(hasItem(DEFAULT_IS_MULTIPLE.booleanValue())))
             .andExpect(jsonPath("$.[*].isOrderBy").value(hasItem(DEFAULT_IS_ORDER_BY.booleanValue())))
             .andExpect(jsonPath("$.[*].isDiscussion").value(hasItem(DEFAULT_IS_DISCUSSION.booleanValue())))
+            .andExpect(jsonPath("$.[*].videourl").value(hasItem(DEFAULT_VIDEOURL)))
             .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE.booleanValue())))
             .andExpect(jsonPath("$.[*].question").value(hasItem(DEFAULT_QUESTION)))
             .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
@@ -199,6 +206,7 @@ public class QuestionsResourceIT {
             .andExpect(jsonPath("$.isMultiple").value(DEFAULT_IS_MULTIPLE.booleanValue()))
             .andExpect(jsonPath("$.isOrderBy").value(DEFAULT_IS_ORDER_BY.booleanValue()))
             .andExpect(jsonPath("$.isDiscussion").value(DEFAULT_IS_DISCUSSION.booleanValue()))
+            .andExpect(jsonPath("$.videourl").value(DEFAULT_VIDEOURL))
             .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE.booleanValue()))
             .andExpect(jsonPath("$.question").value(DEFAULT_QUESTION))
             .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
@@ -229,6 +237,7 @@ public class QuestionsResourceIT {
             .isMultiple(UPDATED_IS_MULTIPLE)
             .isOrderBy(UPDATED_IS_ORDER_BY)
             .isDiscussion(UPDATED_IS_DISCUSSION)
+            .videourl(UPDATED_VIDEOURL)
             .isActive(UPDATED_IS_ACTIVE)
             .question(UPDATED_QUESTION)
             .createdBy(UPDATED_CREATED_BY)
@@ -248,6 +257,7 @@ public class QuestionsResourceIT {
         assertThat(testQuestions.isIsMultiple()).isEqualTo(UPDATED_IS_MULTIPLE);
         assertThat(testQuestions.isIsOrderBy()).isEqualTo(UPDATED_IS_ORDER_BY);
         assertThat(testQuestions.isIsDiscussion()).isEqualTo(UPDATED_IS_DISCUSSION);
+        assertThat(testQuestions.getVideourl()).isEqualTo(UPDATED_VIDEOURL);
         assertThat(testQuestions.isIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
         assertThat(testQuestions.getQuestion()).isEqualTo(UPDATED_QUESTION);
         assertThat(testQuestions.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
