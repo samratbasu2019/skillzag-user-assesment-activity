@@ -12,6 +12,14 @@
     {
       "fieldName": "answer",
       "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant"
     }
   ],
   "relationships": [

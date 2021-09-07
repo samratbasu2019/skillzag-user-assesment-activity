@@ -18,6 +18,8 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,6 +44,12 @@ public class AnswersResourceIT {
 
     private static final String DEFAULT_ANSWER = "AAAAAAAAAA";
     private static final String UPDATED_ANSWER = "BBBBBBBBBB";
+
+    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
+
+    private static final Instant DEFAULT_CREATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_CREATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     @Autowired
     private AnswersRepository answersRepository;
@@ -70,7 +78,9 @@ public class AnswersResourceIT {
         Answers answers = new Answers()
             .isActive(DEFAULT_IS_ACTIVE)
             .isCorrect(DEFAULT_IS_CORRECT)
-            .answer(DEFAULT_ANSWER);
+            .answer(DEFAULT_ANSWER)
+            .createdBy(DEFAULT_CREATED_BY)
+            .createdTime(DEFAULT_CREATED_TIME);
         return answers;
     }
     /**
@@ -83,7 +93,9 @@ public class AnswersResourceIT {
         Answers answers = new Answers()
             .isActive(UPDATED_IS_ACTIVE)
             .isCorrect(UPDATED_IS_CORRECT)
-            .answer(UPDATED_ANSWER);
+            .answer(UPDATED_ANSWER)
+            .createdBy(UPDATED_CREATED_BY)
+            .createdTime(UPDATED_CREATED_TIME);
         return answers;
     }
 
@@ -110,6 +122,8 @@ public class AnswersResourceIT {
         assertThat(testAnswers.isIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
         assertThat(testAnswers.isIsCorrect()).isEqualTo(DEFAULT_IS_CORRECT);
         assertThat(testAnswers.getAnswer()).isEqualTo(DEFAULT_ANSWER);
+        assertThat(testAnswers.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
+        assertThat(testAnswers.getCreatedTime()).isEqualTo(DEFAULT_CREATED_TIME);
     }
 
     @Test
@@ -146,7 +160,9 @@ public class AnswersResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(answers.getId().intValue())))
             .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE.booleanValue())))
             .andExpect(jsonPath("$.[*].isCorrect").value(hasItem(DEFAULT_IS_CORRECT.booleanValue())))
-            .andExpect(jsonPath("$.[*].answer").value(hasItem(DEFAULT_ANSWER)));
+            .andExpect(jsonPath("$.[*].answer").value(hasItem(DEFAULT_ANSWER)))
+            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
+            .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())));
     }
     
     @Test
@@ -162,7 +178,9 @@ public class AnswersResourceIT {
             .andExpect(jsonPath("$.id").value(answers.getId().intValue()))
             .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE.booleanValue()))
             .andExpect(jsonPath("$.isCorrect").value(DEFAULT_IS_CORRECT.booleanValue()))
-            .andExpect(jsonPath("$.answer").value(DEFAULT_ANSWER));
+            .andExpect(jsonPath("$.answer").value(DEFAULT_ANSWER))
+            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
+            .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()));
     }
     @Test
     @Transactional
@@ -187,7 +205,9 @@ public class AnswersResourceIT {
         updatedAnswers
             .isActive(UPDATED_IS_ACTIVE)
             .isCorrect(UPDATED_IS_CORRECT)
-            .answer(UPDATED_ANSWER);
+            .answer(UPDATED_ANSWER)
+            .createdBy(UPDATED_CREATED_BY)
+            .createdTime(UPDATED_CREATED_TIME);
         AnswersDTO answersDTO = answersMapper.toDto(updatedAnswers);
 
         restAnswersMockMvc.perform(put("/api/answers").with(csrf())
@@ -202,6 +222,8 @@ public class AnswersResourceIT {
         assertThat(testAnswers.isIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
         assertThat(testAnswers.isIsCorrect()).isEqualTo(UPDATED_IS_CORRECT);
         assertThat(testAnswers.getAnswer()).isEqualTo(UPDATED_ANSWER);
+        assertThat(testAnswers.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
+        assertThat(testAnswers.getCreatedTime()).isEqualTo(UPDATED_CREATED_TIME);
     }
 
     @Test

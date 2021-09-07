@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.time.Instant;
 
 /**
  * A Answers.
@@ -28,6 +29,12 @@ public class Answers implements Serializable {
 
     @Column(name = "answer")
     private String answer;
+
+    @Column(name = "created_by")
+    private String createdBy;
+
+    @Column(name = "created_time")
+    private Instant createdTime;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "answers", allowSetters = true)
@@ -81,6 +88,32 @@ public class Answers implements Serializable {
         this.answer = answer;
     }
 
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public Answers createdBy(String createdBy) {
+        this.createdBy = createdBy;
+        return this;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Instant getCreatedTime() {
+        return createdTime;
+    }
+
+    public Answers createdTime(Instant createdTime) {
+        this.createdTime = createdTime;
+        return this;
+    }
+
+    public void setCreatedTime(Instant createdTime) {
+        this.createdTime = createdTime;
+    }
+
     public Questions getQuestions() {
         return questions;
     }
@@ -119,6 +152,8 @@ public class Answers implements Serializable {
             ", isActive='" + isIsActive() + "'" +
             ", isCorrect='" + isIsCorrect() + "'" +
             ", answer='" + getAnswer() + "'" +
+            ", createdBy='" + getCreatedBy() + "'" +
+            ", createdTime='" + getCreatedTime() + "'" +
             "}";
     }
 }

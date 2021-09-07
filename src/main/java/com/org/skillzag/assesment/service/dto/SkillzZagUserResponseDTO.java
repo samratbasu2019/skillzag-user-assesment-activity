@@ -1,5 +1,6 @@
 package com.org.skillzag.assesment.service.dto;
 
+import java.time.Instant;
 import java.io.Serializable;
 
 /**
@@ -16,6 +17,8 @@ public class SkillzZagUserResponseDTO implements Serializable {
     private Long answerId;
 
     private Long questionSetId;
+
+    private Instant createdTime;
 
     
     public Long getId() {
@@ -58,6 +61,14 @@ public class SkillzZagUserResponseDTO implements Serializable {
         this.questionSetId = questionSetId;
     }
 
+    public Instant getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(Instant createdTime) {
+        this.createdTime = createdTime;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -84,6 +95,7 @@ public class SkillzZagUserResponseDTO implements Serializable {
             ", questionId=" + getQuestionId() +
             ", answerId=" + getAnswerId() +
             ", questionSetId=" + getQuestionSetId() +
+            ", createdTime='" + getCreatedTime() + "'" +
             "}";
     }
 }

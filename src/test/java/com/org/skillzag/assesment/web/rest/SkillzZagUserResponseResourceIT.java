@@ -18,6 +18,8 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -45,6 +47,9 @@ public class SkillzZagUserResponseResourceIT {
 
     private static final Long DEFAULT_QUESTION_SET_ID = 1L;
     private static final Long UPDATED_QUESTION_SET_ID = 2L;
+
+    private static final Instant DEFAULT_CREATED_TIME = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_CREATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
     @Autowired
     private SkillzZagUserResponseRepository skillzZagUserResponseRepository;
@@ -74,7 +79,8 @@ public class SkillzZagUserResponseResourceIT {
             .userId(DEFAULT_USER_ID)
             .questionId(DEFAULT_QUESTION_ID)
             .answerId(DEFAULT_ANSWER_ID)
-            .questionSetId(DEFAULT_QUESTION_SET_ID);
+            .questionSetId(DEFAULT_QUESTION_SET_ID)
+            .createdTime(DEFAULT_CREATED_TIME);
         return skillzZagUserResponse;
     }
     /**
@@ -88,7 +94,8 @@ public class SkillzZagUserResponseResourceIT {
             .userId(UPDATED_USER_ID)
             .questionId(UPDATED_QUESTION_ID)
             .answerId(UPDATED_ANSWER_ID)
-            .questionSetId(UPDATED_QUESTION_SET_ID);
+            .questionSetId(UPDATED_QUESTION_SET_ID)
+            .createdTime(UPDATED_CREATED_TIME);
         return skillzZagUserResponse;
     }
 
@@ -116,6 +123,7 @@ public class SkillzZagUserResponseResourceIT {
         assertThat(testSkillzZagUserResponse.getQuestionId()).isEqualTo(DEFAULT_QUESTION_ID);
         assertThat(testSkillzZagUserResponse.getAnswerId()).isEqualTo(DEFAULT_ANSWER_ID);
         assertThat(testSkillzZagUserResponse.getQuestionSetId()).isEqualTo(DEFAULT_QUESTION_SET_ID);
+        assertThat(testSkillzZagUserResponse.getCreatedTime()).isEqualTo(DEFAULT_CREATED_TIME);
     }
 
     @Test
@@ -153,7 +161,8 @@ public class SkillzZagUserResponseResourceIT {
             .andExpect(jsonPath("$.[*].userId").value(hasItem(DEFAULT_USER_ID)))
             .andExpect(jsonPath("$.[*].questionId").value(hasItem(DEFAULT_QUESTION_ID.intValue())))
             .andExpect(jsonPath("$.[*].answerId").value(hasItem(DEFAULT_ANSWER_ID.intValue())))
-            .andExpect(jsonPath("$.[*].questionSetId").value(hasItem(DEFAULT_QUESTION_SET_ID.intValue())));
+            .andExpect(jsonPath("$.[*].questionSetId").value(hasItem(DEFAULT_QUESTION_SET_ID.intValue())))
+            .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())));
     }
     
     @Test
@@ -170,7 +179,8 @@ public class SkillzZagUserResponseResourceIT {
             .andExpect(jsonPath("$.userId").value(DEFAULT_USER_ID))
             .andExpect(jsonPath("$.questionId").value(DEFAULT_QUESTION_ID.intValue()))
             .andExpect(jsonPath("$.answerId").value(DEFAULT_ANSWER_ID.intValue()))
-            .andExpect(jsonPath("$.questionSetId").value(DEFAULT_QUESTION_SET_ID.intValue()));
+            .andExpect(jsonPath("$.questionSetId").value(DEFAULT_QUESTION_SET_ID.intValue()))
+            .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()));
     }
     @Test
     @Transactional
@@ -196,7 +206,8 @@ public class SkillzZagUserResponseResourceIT {
             .userId(UPDATED_USER_ID)
             .questionId(UPDATED_QUESTION_ID)
             .answerId(UPDATED_ANSWER_ID)
-            .questionSetId(UPDATED_QUESTION_SET_ID);
+            .questionSetId(UPDATED_QUESTION_SET_ID)
+            .createdTime(UPDATED_CREATED_TIME);
         SkillzZagUserResponseDTO skillzZagUserResponseDTO = skillzZagUserResponseMapper.toDto(updatedSkillzZagUserResponse);
 
         restSkillzZagUserResponseMockMvc.perform(put("/api/skillz-zag-user-responses").with(csrf())
@@ -212,6 +223,7 @@ public class SkillzZagUserResponseResourceIT {
         assertThat(testSkillzZagUserResponse.getQuestionId()).isEqualTo(UPDATED_QUESTION_ID);
         assertThat(testSkillzZagUserResponse.getAnswerId()).isEqualTo(UPDATED_ANSWER_ID);
         assertThat(testSkillzZagUserResponse.getQuestionSetId()).isEqualTo(UPDATED_QUESTION_SET_ID);
+        assertThat(testSkillzZagUserResponse.getCreatedTime()).isEqualTo(UPDATED_CREATED_TIME);
     }
 
     @Test

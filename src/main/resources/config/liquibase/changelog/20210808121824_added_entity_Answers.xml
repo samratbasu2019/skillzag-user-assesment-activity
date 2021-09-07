@@ -24,11 +24,18 @@
             <column name="answer" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="created_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
             <column name="questions_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
+        <dropDefaultValue tableName="answers" columnName="created_time" columnDataType="datetime"/>
     </changeSet>
 
     <changeSet id="20210808121824-1-relations" author="jhipster">
@@ -53,6 +60,8 @@
             <column name="is_active" type="boolean"/>
             <column name="is_correct" type="boolean"/>
             <column name="answer" type="string"/>
+            <column name="created_by" type="string"/>
+            <column name="created_time" type="datetime"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

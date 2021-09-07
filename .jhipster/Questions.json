@@ -18,7 +18,11 @@
       "fieldType": "Boolean"
     },
     {
-      "fieldName": "videourl",
+      "fieldName": "videoUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageUrl",
       "fieldType": "String"
     },
     {
@@ -32,6 +36,10 @@
     {
       "fieldName": "createdBy",
       "fieldType": "String"
+    },
+    {
+      "fieldName": "createdTime",
+      "fieldType": "Instant"
     },
     {
       "fieldName": "score",

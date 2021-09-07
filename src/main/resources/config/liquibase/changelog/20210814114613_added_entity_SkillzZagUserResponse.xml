@@ -27,8 +27,12 @@
             <column name="question_set_id" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="created_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
+        <dropDefaultValue tableName="skillz_zag_user_response" columnName="created_time" columnDataType="datetime"/>
     </changeSet>
 
     <changeSet id="20210814114613-1-relations" author="jhipster">
@@ -54,6 +58,7 @@
             <column name="question_id" type="numeric"/>
             <column name="answer_id" type="numeric"/>
             <column name="question_set_id" type="numeric"/>
+            <column name="created_time" type="datetime"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

@@ -27,7 +27,10 @@
             <column name="is_discussion" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="videourl" type="varchar(255)">
+            <column name="video_url" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="image_url" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="is_active" type="boolean">
@@ -39,6 +42,9 @@
             <column name="created_by" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="created_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
             <column name="score" type="integer">
                 <constraints nullable="true" />
             </column>
@@ -47,6 +53,7 @@
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
+        <dropDefaultValue tableName="questions" columnName="created_time" columnDataType="datetime"/>
     </changeSet>
 
     <changeSet id="20210808121724-1-relations" author="jhipster">
@@ -72,10 +79,12 @@
             <column name="is_multiple" type="boolean"/>
             <column name="is_order_by" type="boolean"/>
             <column name="is_discussion" type="boolean"/>
-            <column name="videourl" type="string"/>
+            <column name="video_url" type="string"/>
+            <column name="image_url" type="string"/>
             <column name="is_active" type="boolean"/>
             <column name="question" type="string"/>
             <column name="created_by" type="string"/>
+            <column name="created_time" type="datetime"/>
             <column name="score" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>

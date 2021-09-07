@@ -4,6 +4,7 @@ package com.org.skillzag.assesment.domain;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.time.Instant;
 
 /**
  * A SkillzZagUserResponse.
@@ -30,6 +31,9 @@ public class SkillzZagUserResponse implements Serializable {
 
     @Column(name = "question_set_id")
     private Long questionSetId;
+
+    @Column(name = "created_time")
+    private Instant createdTime;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -91,6 +95,19 @@ public class SkillzZagUserResponse implements Serializable {
     public void setQuestionSetId(Long questionSetId) {
         this.questionSetId = questionSetId;
     }
+
+    public Instant getCreatedTime() {
+        return createdTime;
+    }
+
+    public SkillzZagUserResponse createdTime(Instant createdTime) {
+        this.createdTime = createdTime;
+        return this;
+    }
+
+    public void setCreatedTime(Instant createdTime) {
+        this.createdTime = createdTime;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -118,6 +135,7 @@ public class SkillzZagUserResponse implements Serializable {
             ", questionId=" + getQuestionId() +
             ", answerId=" + getAnswerId() +
             ", questionSetId=" + getQuestionSetId() +
+            ", createdTime='" + getCreatedTime() + "'" +
             "}";
     }
 }

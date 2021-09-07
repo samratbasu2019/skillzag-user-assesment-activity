@@ -1,11 +1,11 @@
-id;is_active;is_correct;answer
-1;false;true;monitor Metal
-2;false;false;Division B2B Group
-3;false;true;Montenegro
-4;true;true;Checking Account Wooden
-5;true;true;Salad Identity
-6;false;false;solid state
-7;true;true;Congo Armenian Dram
-8;true;true;South Africa Valleys array
-9;false;true;index
-10;true;true;intuitive Facilitator
+id;is_active;is_correct;answer;created_by;created_time
+1;false;true;monitor Metal;Metal;2021-08-07T13:35:46
+2;false;false;Group;Ethiopian Birr;2021-08-07T23:14:33
+3;true;true;Nepal Wooden;multi-byte;2021-08-08T03:50:14
+4;false;true;synergize Bike solid state;withdrawal Congo;2021-08-07T20:14:49
+5;false;true;haptic indexing Legacy;web services Fish;2021-08-08T02:21:28
+6;true;true;intuitive Facilitator;Designer;2021-08-07T13:11:18
+7;true;false;National;Minnesota intuitive;2021-08-08T07:57:23
+8;true;false;process improvement partnerships;connecting niches fuchsia;2021-08-08T10:07:58
+9;false;true;visualize Mexican Peso Mexican Unidad de Inversion (UDI);synthesizing Borders;2021-08-08T09:14:31
+10;true;false;facilitate;Cotton Avon hack;2021-08-07T20:16:30

@@ -1,5 +1,6 @@
 package com.org.skillzag.assesment.service.dto;
 
+import java.time.Instant;
 import java.io.Serializable;
 
 /**
@@ -17,13 +18,17 @@ public class QuestionsDTO implements Serializable {
 
     private Boolean isDiscussion;
 
-    private String videourl;
+    private String videoUrl;
+
+    private String imageUrl;
 
     private Boolean isActive;
 
     private String question;
 
     private String createdBy;
+
+    private Instant createdTime;
 
     private Integer score;
 
@@ -70,12 +75,20 @@ public class QuestionsDTO implements Serializable {
         this.isDiscussion = isDiscussion;
     }
 
-    public String getVideourl() {
-        return videourl;
+    public String getVideoUrl() {
+        return videoUrl;
     }
 
-    public void setVideourl(String videourl) {
-        this.videourl = videourl;
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Boolean isIsActive() {
@@ -100,6 +113,14 @@ public class QuestionsDTO implements Serializable {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
+    }
+
+    public Instant getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(Instant createdTime) {
+        this.createdTime = createdTime;
     }
 
     public Integer getScore() {
@@ -144,10 +165,12 @@ public class QuestionsDTO implements Serializable {
             ", isMultiple='" + isIsMultiple() + "'" +
             ", isOrderBy='" + isIsOrderBy() + "'" +
             ", isDiscussion='" + isIsDiscussion() + "'" +
-            ", videourl='" + getVideourl() + "'" +
+            ", videoUrl='" + getVideoUrl() + "'" +
+            ", imageUrl='" + getImageUrl() + "'" +
             ", isActive='" + isIsActive() + "'" +
             ", question='" + getQuestion() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
+            ", createdTime='" + getCreatedTime() + "'" +
             ", score=" + getScore() +
             ", questionSetId=" + getQuestionSetId() +
             "}";

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,8 +35,11 @@ public class Questions implements Serializable {
     @Column(name = "is_discussion")
     private Boolean isDiscussion;
 
-    @Column(name = "videourl")
-    private String videourl;
+    @Column(name = "video_url")
+    private String videoUrl;
+
+    @Column(name = "image_url")
+    private String imageUrl;
 
     @Column(name = "is_active")
     private Boolean isActive;
@@ -45,6 +49,9 @@ public class Questions implements Serializable {
 
     @Column(name = "created_by")
     private String createdBy;
+
+    @Column(name = "created_time")
+    private Instant createdTime;
 
     @Column(name = "score")
     private Integer score;
@@ -117,17 +124,30 @@ public class Questions implements Serializable {
         this.isDiscussion = isDiscussion;
     }
 
-    public String getVideourl() {
-        return videourl;
+    public String getVideoUrl() {
+        return videoUrl;
     }
 
-    public Questions videourl(String videourl) {
-        this.videourl = videourl;
+    public Questions videoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
         return this;
     }
 
-    public void setVideourl(String videourl) {
-        this.videourl = videourl;
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public Questions imageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Boolean isIsActive() {
@@ -167,6 +187,19 @@ public class Questions implements Serializable {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
+    }
+
+    public Instant getCreatedTime() {
+        return createdTime;
+    }
+
+    public Questions createdTime(Instant createdTime) {
+        this.createdTime = createdTime;
+        return this;
+    }
+
+    public void setCreatedTime(Instant createdTime) {
+        this.createdTime = createdTime;
     }
 
     public Integer getScore() {
@@ -246,10 +279,12 @@ public class Questions implements Serializable {
             ", isMultiple='" + isIsMultiple() + "'" +
             ", isOrderBy='" + isIsOrderBy() + "'" +
             ", isDiscussion='" + isIsDiscussion() + "'" +
-            ", videourl='" + getVideourl() + "'" +
+            ", videoUrl='" + getVideoUrl() + "'" +
+            ", imageUrl='" + getImageUrl() + "'" +
             ", isActive='" + isIsActive() + "'" +
             ", question='" + getQuestion() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
+            ", createdTime='" + getCreatedTime() + "'" +
             ", score=" + getScore() +
             "}";
     }
