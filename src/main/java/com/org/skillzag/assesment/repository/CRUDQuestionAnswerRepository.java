@@ -15,13 +15,13 @@ import java.util.Map;
 @SuppressWarnings("unused")
 @Repository
 public interface CRUDQuestionAnswerRepository extends CrudRepository<QuestionSet, Long> {
-    @Query(value = "select qs.id as questionSetId, a.is_active, a.is_correct, a.answer, q.question, q.videourl, q.id as questionId, a.id as answerId from \n" +
+    @Query(value = "select qs.id as questionSetId, a.is_active, a.is_correct, a.answer, q.question, q.video_url, q.image_url, q.id as questionId, a.id as answerId from \n" +
         "question_set qs, questions q, answers a where qs.id = q.question_set_id and a.questions_id = q.id and qs.id = :id",
         nativeQuery = true)
     List<Map<String, Object>> findQuestionAnswersByQuestionSetId(@Param("id") Long id);
 
 
-    @Query(value = "select qs.id as questionSetId, a.is_active, a.is_correct, a.answer, q.question, q.videourl, q.id as questionId, a.id as answerId from \n" +
+    @Query(value = "select qs.id as questionSetId, a.is_active, a.is_correct, a.answer, q.question, q.video_url, q.image_url, q.id as questionId, a.id as answerId from \n" +
         "question_set qs, questions q, answers a where qs.id = q.question_set_id and a.questions_id = q.id and qs.question_set_type = :type",
         nativeQuery = true)
     List<Map<String, Object>> findQuestionAnswersBySetType(@Param("type") String type);
