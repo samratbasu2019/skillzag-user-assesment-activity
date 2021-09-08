@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    
+
     <!--
         Added the entity QuestionSet.
     -->
@@ -18,7 +18,7 @@
             <column name="is_active" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="question_set" type="varchar(255)">
+            <column name="question_set" type="varchar(1000)">
                 <constraints nullable="true" />
             </column>
             <column name="score" type="bigint">

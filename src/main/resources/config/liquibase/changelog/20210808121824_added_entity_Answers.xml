@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    
+
     <!--
         Added the entity Answers.
     -->
@@ -21,7 +21,7 @@
             <column name="is_correct" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="answer" type="varchar(255)">
+            <column name="answer" type="varchar(20000)">
                 <constraints nullable="true" />
             </column>
             <column name="created_by" type="varchar(255)">
