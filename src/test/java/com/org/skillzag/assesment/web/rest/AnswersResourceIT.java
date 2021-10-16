@@ -51,6 +51,9 @@ public class AnswersResourceIT {
     private static final Instant DEFAULT_CREATED_TIME = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_CREATED_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
+    private static final Integer DEFAULT_SCORE = 1;
+    private static final Integer UPDATED_SCORE = 2;
+
     @Autowired
     private AnswersRepository answersRepository;
 
@@ -80,7 +83,8 @@ public class AnswersResourceIT {
             .isCorrect(DEFAULT_IS_CORRECT)
             .answer(DEFAULT_ANSWER)
             .createdBy(DEFAULT_CREATED_BY)
-            .createdTime(DEFAULT_CREATED_TIME);
+            .createdTime(DEFAULT_CREATED_TIME)
+            .score(DEFAULT_SCORE);
         return answers;
     }
     /**
@@ -95,7 +99,8 @@ public class AnswersResourceIT {
             .isCorrect(UPDATED_IS_CORRECT)
             .answer(UPDATED_ANSWER)
             .createdBy(UPDATED_CREATED_BY)
-            .createdTime(UPDATED_CREATED_TIME);
+            .createdTime(UPDATED_CREATED_TIME)
+            .score(UPDATED_SCORE);
         return answers;
     }
 
@@ -124,6 +129,7 @@ public class AnswersResourceIT {
         assertThat(testAnswers.getAnswer()).isEqualTo(DEFAULT_ANSWER);
         assertThat(testAnswers.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
         assertThat(testAnswers.getCreatedTime()).isEqualTo(DEFAULT_CREATED_TIME);
+        assertThat(testAnswers.getScore()).isEqualTo(DEFAULT_SCORE);
     }
 
     @Test
@@ -162,7 +168,8 @@ public class AnswersResourceIT {
             .andExpect(jsonPath("$.[*].isCorrect").value(hasItem(DEFAULT_IS_CORRECT.booleanValue())))
             .andExpect(jsonPath("$.[*].answer").value(hasItem(DEFAULT_ANSWER)))
             .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())));
+            .andExpect(jsonPath("$.[*].createdTime").value(hasItem(DEFAULT_CREATED_TIME.toString())))
+            .andExpect(jsonPath("$.[*].score").value(hasItem(DEFAULT_SCORE)));
     }
     
     @Test
@@ -180,7 +187,8 @@ public class AnswersResourceIT {
             .andExpect(jsonPath("$.isCorrect").value(DEFAULT_IS_CORRECT.booleanValue()))
             .andExpect(jsonPath("$.answer").value(DEFAULT_ANSWER))
             .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()));
+            .andExpect(jsonPath("$.createdTime").value(DEFAULT_CREATED_TIME.toString()))
+            .andExpect(jsonPath("$.score").value(DEFAULT_SCORE));
     }
     @Test
     @Transactional
@@ -207,7 +215,8 @@ public class AnswersResourceIT {
             .isCorrect(UPDATED_IS_CORRECT)
             .answer(UPDATED_ANSWER)
             .createdBy(UPDATED_CREATED_BY)
-            .createdTime(UPDATED_CREATED_TIME);
+            .createdTime(UPDATED_CREATED_TIME)
+            .score(UPDATED_SCORE);
         AnswersDTO answersDTO = answersMapper.toDto(updatedAnswers);
 
         restAnswersMockMvc.perform(put("/api/answers").with(csrf())
@@ -224,6 +233,7 @@ public class AnswersResourceIT {
         assertThat(testAnswers.getAnswer()).isEqualTo(UPDATED_ANSWER);
         assertThat(testAnswers.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
         assertThat(testAnswers.getCreatedTime()).isEqualTo(UPDATED_CREATED_TIME);
+        assertThat(testAnswers.getScore()).isEqualTo(UPDATED_SCORE);
     }
 
     @Test

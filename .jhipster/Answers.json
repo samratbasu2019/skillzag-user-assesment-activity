@@ -20,6 +20,10 @@
     {
       "fieldName": "createdTime",
       "fieldType": "Instant"
+    },
+    {
+      "fieldName": "score",
+      "fieldType": "Integer"
     }
   ],
   "relationships": [

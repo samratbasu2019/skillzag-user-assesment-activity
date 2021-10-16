@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-
+    
     <!--
         Added the entity Questions.
     -->
@@ -36,7 +36,7 @@
             <column name="is_active" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="question" type="varchar(20000)">
+            <column name="question" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="created_by" type="varchar(255)">

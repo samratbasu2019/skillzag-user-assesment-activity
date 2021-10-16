@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-
+    
     <!--
         Added the entity Answers.
     -->
@@ -21,13 +21,16 @@
             <column name="is_correct" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="answer" type="varchar(20000)">
+            <column name="answer" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="created_by" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="created_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="score" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="questions_id" type="bigint">
@@ -62,6 +65,7 @@
             <column name="answer" type="string"/>
             <column name="created_by" type="string"/>
             <column name="created_time" type="datetime"/>
+            <column name="score" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

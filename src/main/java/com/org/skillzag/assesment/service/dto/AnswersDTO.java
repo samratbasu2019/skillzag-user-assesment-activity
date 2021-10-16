@@ -20,6 +20,8 @@ public class AnswersDTO implements Serializable {
 
     private Instant createdTime;
 
+    private Integer score;
+
 
     private Long questionsId;
     
@@ -71,6 +73,14 @@ public class AnswersDTO implements Serializable {
         this.createdTime = createdTime;
     }
 
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
     public Long getQuestionsId() {
         return questionsId;
     }
@@ -106,6 +116,7 @@ public class AnswersDTO implements Serializable {
             ", answer='" + getAnswer() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +
+            ", score=" + getScore() +
             ", questionsId=" + getQuestionsId() +
             "}";
     }

@@ -36,6 +36,9 @@ public class Answers implements Serializable {
     @Column(name = "created_time")
     private Instant createdTime;
 
+    @Column(name = "score")
+    private Integer score;
+
     @ManyToOne
     @JsonIgnoreProperties(value = "answers", allowSetters = true)
     private Questions questions;
@@ -114,6 +117,19 @@ public class Answers implements Serializable {
         this.createdTime = createdTime;
     }
 
+    public Integer getScore() {
+        return score;
+    }
+
+    public Answers score(Integer score) {
+        this.score = score;
+        return this;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
     public Questions getQuestions() {
         return questions;
     }
@@ -154,6 +170,7 @@ public class Answers implements Serializable {
             ", answer='" + getAnswer() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
             ", createdTime='" + getCreatedTime() + "'" +
+            ", score=" + getScore() +
             "}";
     }
 }
